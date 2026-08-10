@@ -72,6 +72,8 @@ const downloadResume = async ()=>{
 
     const data = await res.json();
     const shortUrl = data.secure_url
+    console.log(shortUrl);
+    
     //  console.log("Cloudinary URL:", data.secure_url);
     generatePDF(shortUrl)
   }) 
@@ -85,7 +87,7 @@ const downloadResume = async ()=>{
   const imgHeight = pdf.internal.pageSize.getHeight()
   pdf.addImage(resumeImg,"PNG",0,0,imgWidth,imgHeight)
   const downloadDetails = {
-    timeStamp,resumeId:id,resumeImg
+    timeStamp,resumeId:id,resumeImg,jobRole:resumeData.job
   }
   const result = await downloadResumeAPI(downloadDetails)
   console.log(result);

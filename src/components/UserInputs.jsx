@@ -99,9 +99,8 @@ function UserInputs({resumeData,setResumeData}) {
     if(fullName && location && job && email && phone && linkedin && github && degree && university && passOut && skills.length>0 && summary){
       //api call
       const response = await addResumeAPI(resumeData)
-      console.log(response);
+      // console.log(response);
       if(response.status==201){
-        
         alert("Resume added successfully!!!")
         const resumeId = response.data.id
         // navigate to view Resume

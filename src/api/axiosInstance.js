@@ -2,10 +2,11 @@ import axios from 'axios'
 
 const axiosInstance = axios.create({
     baseURL:"https://ai-resume-builder-server-dec25.onrender.com",
+    // baseURL:"http://localhost:3000",
     timeout:5000
 })
 
-// response interceptors
+// response interceptors : Handling Global/Common Errors
 axiosInstance.interceptors.response.use(
     (response)=>{
     console.log("response Recieved!!!");
